@@ -1,0 +1,52 @@
+/*Modo claro*/
+
+:root{
+    --colorHeader:#fdd225;
+    --colorAside: #fdd225;
+    --colorSectionMeme: #E3E3E3;
+    --colorTopText: #b1dfdf;
+    --colorAsideButton:#f7dd76;
+    --colorButtonHover:#F782C2;
+    --mainColorFont: #072448;
+    --secondColorFont: #1F306E;
+    --mainFont: 'Londrina Solid', cursive;
+    --secondFont: 'Open Sans Condensed', sans-serif;
+    --borderRadius: 15px;
+  }
+  
+  body.dark-mode{
+    --colorHeader:#380630;
+    --colorAside:#380630;
+    --colorSectionMeme: #030e1b;
+    --colorTopText:#01182e;
+    --colorAside: #310f2e;
+    --colorAsideButton: #5e545c;
+    --colorButtonHover: #795475;
+    --mainColorFont: #e7ebeb;
+    --mainFont: 'Londrina Solid', cursive;
+    --secondFont: 'Open Sans Condensed', sans-serif;
+    --borderRadius: 15px;
+  }
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--mainColorFont);
+  }
+  
+  body{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--mainFont);
+    height: 100vh;
+    width: auto;
+  }
+  
+  button{
+    cursor: pointer;
+  }
+  
+  .display-none{
+   display: none;
+  } 

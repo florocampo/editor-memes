@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Florencia Ocampo">
+    <meta name="description" content="Puedes editar tus memes y descargar tus creaciones con esta aplicación.">
+    <meta name="keywords" content="editor,memes, imagen, texto, generador memes">
+    <!-- Facebook, Open graph -->
+    <meta property="og:title" content="Generador Memes">
+    <meta property="og:description" content="Puedes editar tus memes y descargar tus creaciones con esta aplicación.">
+    <meta property="og:type" content="article">
+    <meta property="og:site name" content="Generador de Memes">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Twitter -->
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="Florencia Ocampo">
+    <meta property="twitter:description" content="Puedes editar tus memes y descargar tus creaciones con esta aplicación.">
+    <meta property="twitter:image" content="">
+    <!--Links-->
+    <link rel="favicon icon" href="./images/favicon.jpg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/55eea74df4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100&family=Open+Sans+Condensed:wght@300&family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Hachi+Maru+Pop&family=Hanalei&family=Londrina+Solid:wght@100&family=Pacifico&family=Permanent+Marker&family=Potta+One&family=Shadows+Into+Light&family=Yusei+Magic&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/edition-section.css">
+    <link rel="stylesheet" href="./css/aside.css">
+    <title>Editor de memes</title>
+</head>
+<body>
+
+    <!--Comienza el header-->
+
+ <header class="main-header">
+    <h1>Generador de Memes </h1> <span class="author">by Florencia Micaela Ocampo ❤️</span>
+        <div class="panel-buttons">
+            <button class="button" id="image-button" aria-label="Editor Imagen"><i class="far fa-file-image button-icon-text" aria-hidden="true"></i>Imagen</button>
+            <button class="button" id="text-button" aria-label="Editor Texto"><i class="fas fa-font button-icon-text" aria-hidden="true"></i>Texto</button>
+            <button class="button light-button" id="light-button" aria-label="Cambiar a Modo Oscuro"><i class="far fa-sun button-icon-text" aria-hidden="true"></i>Modo Claro</button>
+            <button class="button dark-button display-none" id="dark-button" aria-label="Cambiar a Modo Claro"><i class="far fa-moon button-icon-text" aria-hidden="true"></i>Modo Oscuro</button>
+        </div>
+ </header>
+
+<!--Termina el header-->
+
+<!--Contenedor principal/ Edition section-->
+
+<main class="main-container">
+  <section class="section-meme">
+    <article id="meme-container" class="meme-container">
+      <p id="top-text" class="text-image">TEXTO SUPERIOR</p>
+        <div id="meme-image" class="meme-image" aria-label="Imagen de meme"></div>
+        <p id="bottom-text" class="text-image">TEXTO INFERIOR</p>
+    </article>
+
+<!--Botón de descarga-->
+
+    <button id="button-download" class="button-download">
+            DESCARGAR MEME
+      <i class="fas fa-download button-icon-text green-button-icon" aria-hidden="true"></i>
+    </button>
+  </section>
+
+<!--Comienza sección aside-Editor de imagen-->
+
+  <section class="aside-panel" id="aside-panel-container">
+    <button class="aside-button" id="aside-button" aria-label="cerrar panel lateral">
+      <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+    <aside id="image-editor-panel">
+      <h2 class="aside-title">IMAGEN</h2>
+      <section class="panel-editor">
+            
+<!--URL de la imagen-->
+
+        <article class="input-image">
+          <label class="title-url" for="url">URL</label>
+          <input class="url-image" type="text" name="url" id="url" aria-label="Direccion URL de la imagen">
+        </article> 
+
+<!--fondo de la imagen-->
+
+       <div class="panel-control">
+         <h3 class="title-inputs">FONDO</h3>
+        <div class="panel-control-rows">
+          <div class="panel-back-color panel-control-rows">
+           <input aria-label="Color de fondo de imagen" type="color" id="input-back-color" value="#FFFFFF" aria-label="Color de fondo de imagen">
+           <span id="blend-back-color" aria-hidden="true">#FFFFFF</span>
+          </div>
+          <div class="panel-control-row">
+           <select aria-label="Modo de mezcla del color de fondo de la imagen" id="select-back-color" class="panel-control-input">
+             <option value="unset">Ninguno</option>
+             <option value="lighten">Aclarar</option>
+             <option value="darken">Oscurecer</option>
+             <option value="difference">Diferencia</option>
+             <option value="luminosity">Luminosidad</option>
+             <option value="multiply">Multiplicar</option>
+           </select>
+          </div>
+         </div>
+        </div> 
+        
+<!--filtros de la imagen-->
+   
+        <article class="aside-inputs">
+          <h3 class="title-inputs">FILTROS</h3>
+            <div class="filters-container">
+              <label class="title-filters" for="brightness">Brillo</label>
+              <input type="range" name="brightness" id="brightness" min="0" max="1" step="0.1" value="1">
+            </div>
+            <div class="filters-container">
+              <label class="title-filters" for="opacity">Opacidad</label>
+              <input type="range" name="opacity" id="opacity" min="0" max="1" step="0.1" value="1">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="contrast">Contraste</label>
+               <input type="range" name="contrast" id="contrast" min="100" max="1000" step="1" value="100"> 
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="blur">Desenfoque</label>
+               <input type="range" name="blur" id="blur" min="0" max="10" step="0.1" value="0">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="grayscale">Escala de grises</label>
+               <input type="range" name="grayscale" id="grayscale" min="0" max="100" step="1" value="0">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="sepia">Sepia</label>
+               <input type="range" name="sepia" id="sepia" min="0" max="100" step="1" value="0">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="hue">Hue</label>
+               <input type="range" name="hue" id="hue" min="0" max="359" step="1" value="0">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="saturate">Saturado</label>
+               <input type="range" name="saturate" id="saturate" min="100" max="1000" step="10" value="100">
+            </div>
+            <div class="filters-container">
+               <label class="title-filters" for="invert">Negativo</label>
+               <input type="range" name="invert" id="invert" min="0" max="1" step="0.1" value="0">
+            </div>
+        </article>
+      </section>
+
+<!-- Botón reestablecer filtros -->
+
+    <button id="reset-button" class="aside-reset-button">Reestablecer filtros</button>
+    </aside>
+
+<!-- Termina el aside-Editor de imagen  -->
+
+<!-- Comienza el aside-Editor de texto  -->
+
+    <aside class="display-none" id="text-editor-panel">
+      <h2 class="aside-title" id="aside-title-texto">TEXTO</h2>
+        <section class="aside-section">
+
+<!-- texto superior -->
+
+          <article class="aside-inputs">
+            <label  class="title-inputs"for="top-text">SUPERIOR</label>
+            <textarea type="text" name="top-text" id="top-aside-text" maxlength="50" aria-label ="Escribe el texto superior del meme">Escriba aquí el texto superior</textarea>
+            <div class="aside-chekbox image-background-color">
+                <input type="checkbox" name="no-top-text" id="without-top-text">
+                <label class="checkbox-label" for="no-top-text">Sin texto superior</label>
+            </div>
+          </article>
+
+<!-- Edición del texto inferior -->
+
+          <article class="aside-inputs">
+            <label  class="title-inputs" for="bottom-text">INFERIOR</label>
+            <textarea type="text" name="Texto inferior" id="bottom-aside-text" maxlength="50" aria-label="Escribe el texto inferior del meme">Escriba aquí el texto inferior</textarea>
+            <div class="aside-chekbox image-background-color">
+                <input type="checkbox" name="no-bottom-text" id="without-bottom-text">
+                <label for="no-bottom-text">Sin texto inferior</label>
+            </div>
+          </article>
+
+<!-- Edición del tipo de la letra -->
+
+          <article class="aside-inputs">
+            <label class="title-inputs" for="font-type">FUENTE</label>
+            <select name="font-type" id="font-type" aria-label="Selecciona el tipo de fuente">
+                <option value="Yusei Magic">Yusei Magic</option>
+                <option value="Potta One">Potta One</option>
+                <option value="Londrina Solid">Londrina Solid</option>
+                <option value="Hachi Maru Pop">Hachi Maru Pop</option>
+                <option value="Hanalei">Hanalei</option>
+                <option value="Anton">Anton</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Permanent Marker
+                ">Permanent Marker</option>
+                <option value="verdana">verdana</option>
+            </select>
+
+<!-- Edición del tamaño de la letra -->
+
+            <div class="panel-control-rows font-buttons" id="font-buttons-text" >
+                <input type="number" name="font-size" id="font-size" min="12" max="80" value="40" aria-label="Tamaño de fuente">
+
+<!--Alineación del texto --> 
+
+                <button id="button-text-left" class="align-button" aria-label="Justificar texto a la izquierda"><i class="fas fa-align-left button-icon-text" aria-hidden="true"></i></button>
+
+                <button id="button-text-center" class="align-button" aria-label="Justificar texto en el centro"><i class="fas fa-align-center button-icon-text" aria-hidden="true"></i></button>
+
+                <button id="button-text-rigth" class="align-button" aria-label="Justificar texto a la derecha"><i class="fas fa-align-right button-icon-text" aria-hidden="true"></i></button>
+            </div>
+          </article>
+
+<!-- Edicion del Color -->
+
+         <article class="aside-inputs">
+            <div class="panel-control-rows">
+               <div class="editor-color">
+               <label  class="title-inputs" for="font-color">COLOR</label>
+               <div class="aside-inputs-row color-inputs">
+                 <input type="color" name="font-color" id="font-color" value="#000000" aria-label="Selecciona color texto">
+                 <span id="font-color-text" aria-hidden="true">#000000</span>
+               </div>
+            </div>
+
+<!-- Color del fondo del texto -->
+
+            <div class="editor-color">
+              <label  class="title-inputs" for="font-back">FONDO</label>
+              <div class="aside-inputs-row color-inputs">
+                 <input type="color" name="font-back" id="font-back" value="#ffffff" aria-label="Selecciona color de fondo del texto">
+                <span id="font-back-text" aria-hidden="true">#FFFFFF</span>
+              </div>
+            </div>
+         </div>
+            <div class="aside-chekbox image-background-color">
+                <input type="checkbox" name="font-back" id="without-back-color">
+                <label class="checkbox-label" for="no.-font-back">Fondo transparente</label>
+            </div>
+         </article>
+                         
+<!-- Contorno del texto -->
+
+         <article class="aside-inputs" id="outline-buttons">
+            <label class="title-inputs">CONTORNO</label>
+            <div class="aside-inputs-buttons">
+                <button id="no-outline-text" class="button-outline" aria-label="Sin contorno de texto">Ninguno</button>
+                <button id="light-outline-text" class="button-outline" aria-label="Contorno de texto claro">Claro</button>
+                <button id="dark-outline-text" class="button-outline" aria-label="Contorno de texto oscuro">Oscuro</button>
+            </div>
+         </article>
+
+<!-- Padding / Espaciado de la fuente -->
+
+         <article class="aside-input">
+            <label class="title-inputs" for="font-spacing">ESPACIADO</label>
+            <input type="number" id="font-spacing" min="10" max="50" value="35">
+         </article>
+
+<!-- Interlineado de la fuente / Alto de línea  -->
+
+          <article class="aside-input">
+             <label class="title-inputs" for="line-height">INTERLINEADO</label>
+             <select class="line-height" id="line-height" aria-label="Interlineado" value="1.2">
+                <option value="0.8">0.8</option>
+                <option value="1">1</option>
+                <option value="1.2">1.2</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+             </select>
+          </article>
+    </section>
+  </aside>
+</section>
+</main>
+    
+<script src="./js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+
+</body>
+</html>
