@@ -62,7 +62,7 @@ input, textarea, select{
     padding: 0.5rem;
     border: 0;
     border-radius: var(--borderRadius);
-    outline: none;
+    outline: none;/*    :(     */
     background-color: var(--colorHeader);
     font-family: var(--mainFont);
     font-weight: bold;

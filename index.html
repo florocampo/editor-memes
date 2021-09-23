@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- La pagina esta en español, pero el lenguaje del documento es ingles. Un lector de pantalla trataria de 
+leerla en ingles (va a leer "yiniradour di mims") y buscadores como google van a recomendar esta web a 
+angloparlantes.
+El lang del documento debe coincidir con el lenguaje que usan los usuarios de esta pagina.  -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +25,7 @@
     <!--Links-->
     <link rel="favicon icon" href="./images/favicon.jpg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/55eea74df4.js" crossorigin="anonymous"></script>
+    <!-- ojo que estas repitiendo tipografias, como Potta. Eso afecta el tiempo de carga de tu web -->
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100&family=Open+Sans+Condensed:wght@300&family=Potta+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Hachi+Maru+Pop&family=Hanalei&family=Londrina+Solid:wght@100&family=Pacifico&family=Permanent+Marker&family=Potta+One&family=Shadows+Into+Light&family=Yusei+Magic&display=swap" rel="stylesheet">  
@@ -37,6 +42,12 @@
  <header class="main-header">
     <h1>Generador de Memes </h1> <span class="author">by Florencia Micaela Ocampo ❤️</span>
         <div class="panel-buttons">
+          <!-- Cuando el html es muy largo, privilegia agregar saltos de linea para que el lector no tenga
+          que hacer scroll horizontal:
+            <button class="button" id="image-button" aria-label="Editor Imagen">
+              <i class="far fa-file-image button-icon-text" aria-hidden="true"></i>
+              Imagen
+            </button> -->
             <button class="button" id="image-button" aria-label="Editor Imagen"><i class="far fa-file-image button-icon-text" aria-hidden="true"></i>Imagen</button>
             <button class="button" id="text-button" aria-label="Editor Texto"><i class="fas fa-font button-icon-text" aria-hidden="true"></i>Texto</button>
             <button class="button light-button" id="light-button" aria-label="Cambiar a Modo Oscuro"><i class="far fa-sun button-icon-text" aria-hidden="true"></i>Modo Claro</button>
@@ -75,15 +86,18 @@
       <section class="panel-editor">
             
 <!--URL de la imagen-->
-
+<!-- Aqui empieza un formulario, asi que necesitamos la etiqueta form
+No es necesario el article, los articulos son elementos como cards  -->
         <article class="input-image">
           <label class="title-url" for="url">URL</label>
+          <!-- No es necesaria el aria label si ya tenes label for  -->
           <input class="url-image" type="text" name="url" id="url" aria-label="Direccion URL de la imagen">
         </article> 
 
 <!--fondo de la imagen-->
 
        <div class="panel-control">
+         <!-- esto es un label, no un titulo (mas alla de su estilado)-->
          <h3 class="title-inputs">FONDO</h3>
         <div class="panel-control-rows">
           <div class="panel-back-color panel-control-rows">
