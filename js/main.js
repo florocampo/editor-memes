@@ -17,6 +17,8 @@ const memeImage = document.getElementById('meme-image');
 const urlImage = document.getElementById('url');
 const backColorImg = document.getElementById('input-back-color');
 const blendBackColor = document.getElementById('blend-back-color');
+// ojo con la mayuscula aca. Las variables que empiezan con mayuscula significan algo muy especifico: 
+// una clase o un componente, que veremos mas adelante
 const SelectBackColor = document.getElementById('select-back-color');
 const brightnessFilter = document.getElementById('brightness');
 const opacityFilter = document.getElementById('opacity');
@@ -57,6 +59,7 @@ const lineSpacing = document.getElementById('line-height');
 
 /*Inicialización header*/
 //Botón imagen-header
+// Ojo la sintaxis, deja espacios en tus funciones: () => {
 imgButton.addEventListener('click', ()=>{
     asideContainer.style.display = 'block';
     imageEditorPanel.classList.remove('display-none');
@@ -108,6 +111,7 @@ asideButton.addEventListener('click', ()=>{
 //Imagen URL
 
 urlImage.addEventListener('keyup', (e)=>{
+    // esto no hace nada aqui! lo usamos para prevenir el envio del form, pero vos no tenes ninguno
     e.preventDefault();
     const valueUrl = urlImage.value;
     memeImage.style.backgroundImage = `url("${valueUrl}")`;
@@ -129,6 +133,14 @@ backColorImg.addEventListener('input', ()=>{
 // Filtros de la imágen
 
 const filtrosImagen = () =>{
+    // Cuando es muy largo, deja saltos de linea:
+    // memeImage.style.filter = `
+    //     brightness(${brightnessFilter.value}) opacity(${opacityFilter.value}) 
+    //     contrast(${contrastFilter.value}%) blur(${blurFilter.value}px) 
+    //     grayscale(${grayscaleFilter.value}%) sepia(${sepiaFilter.value}%)
+    //     hue-rotate(${hueFilter.value}deg) saturate(${saturateFilter.value}%) 
+    //     invert(${invertFilter.value})
+    //     `;
     memeImage.style.filter = `brightness(${brightnessFilter.value}) opacity(${opacityFilter.value}) contrast(${contrastFilter.value}%) blur(${blurFilter.value}px) grayscale(${grayscaleFilter.value}%) sepia(${sepiaFilter.value}%) hue-rotate(${hueFilter.value}deg) saturate(${saturateFilter.value}%) invert(${invertFilter.value})`;
 };
 
@@ -176,6 +188,9 @@ inputBottomText.addEventListener('keyup', () => {
 
 //checkbox sin texto superior
 withoutTopText.addEventListener('change',()=>{
+    // ojo con los espacios
+    // if ()
+    // else {
     if(withoutTopText.checked){
         topText.classList.add('display-none');
     } else{
@@ -195,6 +210,9 @@ withoutBottomText.addEventListener('change',()=>{
 //Tipo de fuente del texto meme
 
 fontType.addEventListener('change',()=>{
+    // no es necesaria la interpolacion aca!
+    // topText.style.fontFamily = fontType.value;
+    // bottomText.style.fontFamily = fontType.value;
     topText.style.fontFamily = `${fontType.value}`;
     bottomText.style.fontFamily = `${fontType.value}`;
 });
@@ -254,6 +272,7 @@ withoutBack.addEventListener('change',()=>{
         bottomText.style.bottom = '0';
 
     }else{
+        // No es necesaria la interpolacion aca
         topText.style.backgroundColor = `${fontBackgroundColor.value}`;
         topText.style.position = 'static';
         bottomText.style.backgroundColor = `${fontBackgroundColor.value}`;
@@ -293,6 +312,7 @@ fontSpacing.addEventListener('input', spacing);
 // Interlineado del texto
 
 lineSpacing.addEventListener('change', ()=>{
+    // No es necesaria la interpolacion aca
     topText.style.lineHeight = `${lineSpacing.value}`;
     bottomText.style.lineHeight = `${lineSpacing.value}`;
 });
